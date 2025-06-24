@@ -3,6 +3,7 @@ from collections import deque
 def pessoa_e_vendedor(nome):
     return nome[-1] == 'm'
 
+#implementação da busca em largura
 def pesquisa(nome):
     fila_de_pesquisa = deque()
     fila_de_pesquisa += grafo[nome]
