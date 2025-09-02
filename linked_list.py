@@ -61,6 +61,16 @@ class LinkedList:
                 current = current.next
             current.next = current.next.next
         self.size -= 1
+
+def hasCycle(self, head: Optional[ListNode]) -> bool:
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    return False
+
 if __name__ == "__main__":
     linkedList = LinkedList()
     linkedList.addAtHead(1)
