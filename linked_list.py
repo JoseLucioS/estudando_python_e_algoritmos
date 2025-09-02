@@ -62,7 +62,7 @@ class LinkedList:
             current.next = current.next.next
         self.size -= 1
 
-def hasCycle(self, head: Optional[ListNode]) -> bool:
+def hasCycle(self, head) -> bool:
     slow = fast = head
     while fast and fast.next:
         slow = slow.next
