@@ -1,5 +1,5 @@
 #design de uma linked list
-class Node:
+class ListNode:
     def __init__(self, value):
         self.value = value
         self.next = None
@@ -19,13 +19,13 @@ class LinkedList:
         return current.value
 
     def addAtHead(self, val: int) -> None:
-        currentNode = Node(val)
+        currentNode = ListNode(val)
         currentNode.next = self.head
         self.head = currentNode
         self.size += 1
 
     def addAtTail(self, val: int) -> None:
-        newNode = Node(val)
+        newNode = ListNode(val)
         if not self.head:
             self.head = newNode
         else:
@@ -41,12 +41,12 @@ class LinkedList:
         if index == 0:
             self.addAtHead(val)
             return
-        newNode = Node(val)
+        newNode = ListNode(val)
         current = self.head
         for _ in range(index - 1):
             current = current.next
-            newNode.next = current.next
-            current.next = newNode
+        newNode.next = current.next
+        current.next = newNode
         self.size += 1
         
 
@@ -62,14 +62,14 @@ class LinkedList:
             current.next = current.next.next
         self.size -= 1
 
-def hasCycle(self, head) -> bool:
-    slow = fast = head
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-        if slow == fast:
-            return True
-    return False
+    def hasCycle(self, head) -> bool:
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
 
 if __name__ == "__main__":
     linkedList = LinkedList()
@@ -79,3 +79,4 @@ if __name__ == "__main__":
     print(linkedList.get(1))      # return 2
     linkedList.deleteAtIndex(1)   # now the linked list is 1->3
     print(linkedList.get(1))      # return 3
+    print(linkedList.hasCycle(linkedList.head))
